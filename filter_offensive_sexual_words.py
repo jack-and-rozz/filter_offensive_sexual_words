@@ -28,7 +28,7 @@ def get_ngword_match_strict(tokenized_text: str, tokenized_ngwords:set) -> list:
         for i in range(len(tokenized_text) - len(ngword) + 1):
             if tokenized_text[i:i+len(ngword)] == ngword:
                 res.append((ngword, range(i, i+len(ngword))))
-    return res # a list of tuples (matched ngram, (start, end))
+    return res # a list of tuples ([matched ngram], (start, end))
 
 get_ngword_match = get_ngword_match_strict
 
