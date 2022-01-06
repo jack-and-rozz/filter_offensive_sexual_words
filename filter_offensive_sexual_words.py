@@ -28,7 +28,7 @@ def get_ngword_match_strict(tokenized_text: str, tokenized_ngwords:set) -> list:
         for i in range(len(tokenized_text) - len(ngword) + 1):
             if tokenized_text[i:i+len(ngword)] == ngword:
                 res.append((ngword, range(i, i+len(ngword))))
-    return res # (matched ngram, (start, end))
+    return res # a list of tuples (matched ngram, (start, end))
 
 get_ngword_match = get_ngword_match_strict
 
@@ -39,7 +39,7 @@ def read_ngwords_list(paths: list, tokenizer) -> set:
         for l in open(path):
             ngword = tokenizer.parse(l.strip()).strip()
             ngwords.add(ngword)
-    return ngwords # a set of tokenized str
+    return ngwords # a set of tokenized strs
 
 
 def replace_ngwords_into_mask(tokenized_text, match_res, mask_char="*") -> list:
@@ -49,7 +49,7 @@ def replace_ngwords_into_mask(tokenized_text, match_res, mask_char="*") -> list:
             ''.join([mask_char for _ in range(len(tok))])
             if i in match_range else tok
             for i, tok in enumerate(masked_text)]
-    return masked_text # a list of str
+    return masked_text # a list of strs
 
 
 
