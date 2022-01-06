@@ -33,7 +33,7 @@ def get_ngword_match_strict(tokenized_text: str, tokenized_ngwords:set) -> list:
 get_ngword_match = get_ngword_match_strict
 
 
-def read_words_list(paths: list, tokenizer) -> set:
+def read_ngwords_list(paths: list, tokenizer) -> set:
     ngwords = set()
     for path in paths:
         for l in open(path):
@@ -71,7 +71,7 @@ def test(match_func, samples, tokenized_ngwords, tokenizer):
 
 def main():
     tokenizer = MeCab.Tagger('-Owakati')
-    tokenized_ngwords = read_words_list(ngwords_lists_path, tokenizer)
+    tokenized_ngwords = read_ngwords_list(ngwords_lists_path, tokenizer)
 
     samples = [
         "もう何度言ったか知らんがPCR検査、本当これ受ける糞馬鹿野郎のせいでエンドレスだな",
