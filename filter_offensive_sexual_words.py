@@ -11,7 +11,7 @@ ngwords_lists_path = [
 ]
 ngwords_lists_path = [ngwords_lists_root + '/' + p for p in ngwords_lists_path]
 
-# deprecated
+# <deprecated>
 # def get_ngword_match(tokenized_text: str, tokenized_ngwords:set) -> list:
 #     res = []
 #     for ngword in tokenized_ngwords:
